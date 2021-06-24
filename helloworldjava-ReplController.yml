@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: helloworldjava-controller
+spec:
+  replicas: 3
+  selector:
+    app: helloworldjava
+  template:
+    metadata:
+      labels:
+        app: helloworldjava
+    spec:
+      containers:
+      - name: mavenrepo
+        image: yuvaraj9908/my-maven-java
+        ports:
+        - name: java-port
+          containerPort: 3001
